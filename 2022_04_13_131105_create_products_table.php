@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('product_name',50);
+            $table->enum('product_type',['snack','drink','makeup','drugs']);
+            $table->integer('product_price');
+            $table->date('expired_at');
+            $table->timestamps(); //created_at , updated_at
         });
     }
 
